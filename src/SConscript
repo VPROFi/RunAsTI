@@ -1,0 +1,5 @@
+Import('env')
+Import('res')
+env['PDB'] = 'RunAsTI.pdb'
+program = env.Program(target='RunAsTI', source=[Glob('*.cpp'), res])
+Return('program')

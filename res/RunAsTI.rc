@@ -1,0 +1,75 @@
+#include "resource.h"
+
+#include <WinResrc.h>
+
+//
+// Icon resources
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Значок
+//
+
+// Значок с наименьшим значением идентификатора помещается первым, чтобы гарантировать использование
+// идентичного значка приложения для всех систем.
+
+IDI_MAINAPPICON    ICON    "RunAsTI.ico"
+
+
+//LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+
+
+#define PROJECT_NAME "RunAsTI"
+
+
+#define FILE_DESCRIPTION_BASE PROJECT_NAME " console application"
+
+#ifdef _DEBUG
+#define FILE_DESCRIPTION_DBG FILE_DESCRIPTION_BASE " (debug version)"
+#else
+#define FILE_DESCRIPTION_DBG FILE_DESCRIPTION_BASE
+#endif
+
+#ifdef _WIN64
+#define FILE_DESCRIPTION FILE_DESCRIPTION_DBG " 64 bit"
+#else
+#define FILE_DESCRIPTION FILE_DESCRIPTION_DBG
+#endif
+
+//
+// Version Information resources
+//
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,0,1
+    PRODUCTVERSION  1,0,0,1
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+#ifdef _DEBUG
+ FILEFLAGS VS_FF_DEBUG
+#else
+ FILEFLAGS 0x0L
+#endif
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904B0"
+        {
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", FILE_DESCRIPTION "\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", PROJECT_NAME ".exe\0"
+            VALUE "LegalCopyright", "Copyright (C) vPROFi " PROJECT_NAME " 2021\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", PROJECT_NAME ".exe\0"
+            VALUE "ProductName", PROJECT_NAME " application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0409, 0x04B0
+    }
+}

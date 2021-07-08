@@ -1,0 +1,10 @@
+Import('env')
+
+if ARGUMENTS.get('debug', 0):
+    env['RCFLAGS'] = env['RCFLAGS']+' /D _DEBUG'
+
+if '64' in env['TARGET_ARCH'] and Platform().name.lower().startswith('win'):
+    env['RCFLAGS'] = env['RCFLAGS']+' /D _WIN64'
+
+res = env.RES(Glob('RunAsTI.rc'))
+Return('res')
